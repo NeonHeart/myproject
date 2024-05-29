@@ -31,8 +31,8 @@ if __name__ == "__main__":
         + " (for north, east, south and west).")
     solution = input("Your solution: ")
 
-    currentRow = 1
-    currentCol = 0
+    row = 1
+    col = 0
     done = False
     solved = False
     charIndex = 0
@@ -41,27 +41,27 @@ if __name__ == "__main__":
     while not done and charIndex < solutionLength:
         
         direction = solution[charIndex]
-        print("Location: (" + str(currentRow) + ", " + str(currentCol) 
+        print("Location: (" + str(row) + ", " + str(col) 
             + "), next direction: '" + direction + "'")
         
         if direction == NORTH:
-            currentRow -= 1
+            row -= 1
             
         elif direction == EAST:
-            currentCol += 1
+            col += 1
                 
         elif direction == SOUTH:
-            currentRow += 1
+            row += 1
                 
         elif direction == WEST:
-            currentCol -= 1
+            col -= 1
         
         else:
             print("You have no idea where you're going.") # Invalid direction.
         
-        if (currentRow < 0 or currentCol < 0 
-                        or currentRow >= len(grid) 
-                        or currentCol >= len(grid[currentRow])):
+        if (row < 0 or col < 0 
+                        or row >= len(grid) 
+                        or col >= len(grid[row])):
             done = True
             print("You fall into a chasm of doom.") # Out of bounds.
             
@@ -74,7 +74,7 @@ if __name__ == "__main__":
                 done = True
                 print("You stumble blindly into a solid concrete wall.") # Hit wall.
 
-            elif cell == END:
+            elif cell == END
                 done = True
                 solved = True
                 print("SOLVED!") # Solved.
